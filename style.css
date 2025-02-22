@@ -1,3 +1,20 @@
+:root {
+  --color-primary: #cc4d00;
+  --color-secondary: #333333;
+  --color-white: #ffffff;
+  --color-background: var(--color-white);
+  --color-text: #4d4d4d;
+  --color-text-secondary: #737373;
+  --color-footer-bg: #1a1a1a;
+  --color-footer-text: #cccccc;
+  --color-accent: #bf0019;
+  --color-success: #118000;
+  --px-border-primary: 1rem;
+  --px-border-secondary: 0.25rem;
+  --box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 body {
@@ -45,8 +62,8 @@ h6 {
   overflow-wrap: break-word;
 }
 p {
-  text-wrap: pretty;
-  color: var(--color-text);
+  /* text-wrap: pretty; */
+  color: var(--color-secondary);
 }
 h1,
 h2,
@@ -73,4 +90,210 @@ input[type='reset'] {
   font: inherit;
   cursor: pointer;
   outline: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-secondary);
+}
+
+.container {
+  padding: 0 16px;
+  width: 100vw;
+  max-width: 1624px;
+  margin: 0 auto;
+}
+
+.links-to-offers {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1rem;
+  justify-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.links-to-offers img {
+  border-radius: var(--px-border-primary);
+  width: 100%;
+}
+
+.links-to-offers a {
+  width: 100%;
+}
+
+.page-title {
+  display: flex;
+  align-items: center;
+  margin: 0 auto 1rem;
+  padding-top: 1rem;
+}
+
+.page-title h1,
+.page-title span {
+  font-size: 14px;
+}
+
+.section-main-link {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.section-main-link h2 {
+  font-size: 1.25rem;
+  flex: 1;
+}
+
+.section-main-link svg {
+  width: 20px;
+  height: 20px;
+  align-self: center;
+}
+
+.products-list {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 1rem 0;
+  gap: 1rem;
+}
+
+.product {
+  width: 100%;
+  max-width: 240px;
+  display: grid;
+  grid-template-columns: repeat(auto, 1fr);
+  gap: 8px;
+  margin: 0 auto;
+}
+
+.product__header {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 16px 1fr 26px;
+  width: 100%;
+  position: relative;
+  margin-bottom: -4px;
+}
+
+.product__pill {
+  border: 0.125rem solid var(--color-accent);
+  background: var(--color-accent);
+  padding: 2px 4px;
+  border-radius: var(--px-border-secondary);
+  font-size: 12px;
+  color: var(--color-white);
+  grid-row: 1;
+  grid-column: 1;
+  justify-self: start;
+  align-self: start;
+  z-index: 1;
+  font-weight: 700;
+}
+
+.product__promo {
+  width: fit-content;
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  padding: 3px 8px;
+  border-radius: var(--px-border-secondary);
+  font-size: 12px;
+  grid-row: 3;
+  grid-column: 1;
+  justify-self: start;
+  align-self: end;
+  z-index: 1;
+  font-weight: 700;
+  background: var(--color-background);
+  letter-spacing: 0.025rem;
+}
+
+.product__image {
+  grid-row: 1 / -1;
+  grid-column: 1;
+  object-fit: cover;
+  align-self: center;
+  justify-self: center;
+  padding: 4px 0 16px 0;
+}
+
+.product__price {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.product__price__current {
+  color: var(--color-accent);
+  font-weight: 700;
+  font-size: 1.0625rem;
+}
+.product__price__crossed {
+  font-size: 0.875rem;
+  font-weight: 400;
+  text-decoration: line-through;
+  color: var(--color-text-secondary);
+}
+
+.product__name {
+  font-size: 14px;
+}
+
+.product__rating {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.rating {
+  font-weight: 700;
+}
+
+.opinions,
+.rating {
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.product__rating__star {
+  width: 16px;
+  height: 16px;
+}
+
+.shipping {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.025rem;
+  line-height: 1rem;
+}
+
+.shipping__free {
+  color: var(--color-success);
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 24px;
+  }
+
+  .products-list {
+    grid-template-columns: repeat(3, 240px);
+    column-gap: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 32px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .links-to-offers {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
 }
